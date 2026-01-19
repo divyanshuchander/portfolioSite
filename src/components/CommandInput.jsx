@@ -1,5 +1,6 @@
 // src/components/CommandInput.jsx
 import { useEffect, useRef, useState } from 'react';
+import { commands } from '../utils/commands';
 
 export default function CommandInput({ onCommand, history }) {
   const [input, setInput] = useState('');
@@ -41,6 +42,13 @@ export default function CommandInput({ onCommand, history }) {
       } else if (historyIndex === 0) {
         setHistoryIndex(-1);
         setInput('');
+      }
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const availableCommands = Object.keys(commands);
+      const match = availableCommands.find(cmd => cmd.startsWith(input.toLowerCase()));
+      if (match) {
+        setInput(match);
       }
     }
   };

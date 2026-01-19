@@ -198,9 +198,47 @@ export const getCommandOutput = (cmd, args) => {
         return commands[commandBase].execute(args);
     }
     
+    // Check for "Did you mean?"
+    const availableCommands = Object.keys(commands);
+    let suggestion = null;
+    let minDistance = 3; // Tolerance
+
+    const levenshtein = (a, b) => {
+      const matrix = [];
+      for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+      for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+      for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+          if (b.charAt(i - 1) == a.charAt(j - 1)) {
+            matrix[i][j] = matrix[i - 1][j - 1];
+          } else {
+            matrix[i][j] = Math.min(
+              matrix[i - 1][j - 1] + 1,
+              Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1)
+            );
+          }
+        }
+      }
+      return matrix[b.length][a.length];
+    };
+
+    availableCommands.forEach(c => {
+        const distance = levenshtein(commandBase, c);
+        if (distance < minDistance) {
+            minDistance = distance;
+            suggestion = c;
+        }
+    });
+
     return (
-        <div className="text-terminal-error font-bold">
-            ERROR: Command '{cmd}' not recognized. Type 'help' for protocol list.
+        <div className="text-terminal-error font-bold flex flex-col gap-1">
+            <span>ERROR: Command '{cmd}' not recognized. Type 'help' for protocol list.</span>
+            {suggestion && (
+                <span className="text-gray-400 font-normal">
+                    Did you mean <span className="text-cyan-400 italic">'{suggestion}'</span>?
+                </span>
+            )}
         </div>
     );
 };

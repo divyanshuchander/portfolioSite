@@ -35,7 +35,7 @@ export default function Terminal() {
       <div className="scanlines"></div>
       
       <div className="h-screen w-full flex items-center justify-center p-4">
-        <div className="w-full max-w-4xl bg-black/90 backdrop-blur-md border border-gray-800 rounded-lg shadow-2xl overflow-hidden flex flex-col h-[700px] relative">
+        <div className="w-full max-w-4xl bg-black/90 backdrop-blur-md border border-gray-800 rounded-lg shadow-2xl overflow-hidden flex flex-col h-[80vh] md:h-[700px] relative">
           
           {/* Terminal Window Header */}
           <div className="h-8 bg-gray-900 border-b border-gray-800 flex items-center px-4 gap-2">
