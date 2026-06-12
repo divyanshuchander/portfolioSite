@@ -1,20 +1,16 @@
 // src/App.jsx
-import { useState } from 'react';
-import Terminal from './components/Terminal';
-import BootSequence from './components/BootSequence';
+import { useTheme } from './hooks/useTheme';
+import Navbar from './components/layout/Navbar';
+import BentoGrid from './components/layout/BentoGrid';
 
 function App() {
-  // Start with boot sequence active
-  const [booting, setBooting] = useState(true);
+  const { theme, toggle } = useTheme();
 
   return (
-    <>
-      {booting ? (
-        <BootSequence onComplete={() => setBooting(false)} />
-      ) : (
-        <Terminal />
-      )}
-    </>
+    <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-base)' }}>
+      <Navbar theme={theme} onToggle={toggle} />
+      <BentoGrid />
+    </div>
   );
 }
 
