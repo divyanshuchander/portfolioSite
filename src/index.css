@@ -10,13 +10,13 @@
   --bg-subtle: #f1f0ed;
   --bg-hero: #eeecea;
 
-  --text-primary: #1a1917;
-  --text-secondary: #6b6760;
-  --text-tertiary: #9c9893;
+  --text-primary: #111110;
+  --text-secondary: #3d3b37;
+  --text-tertiary: #6b6760;
   --text-inverse: #ffffff;
 
-  --border: rgba(26, 25, 23, 0.08);
-  --border-strong: rgba(26, 25, 23, 0.14);
+  --border: rgba(26, 25, 23, 0.11);
+  --border-strong: rgba(26, 25, 23, 0.2);
 
   --accent: #6366f1;
   --accent-soft: rgba(99, 102, 241, 0.1);
@@ -88,6 +88,9 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.6;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--transition-slow), color var(--transition-slow);
 }
 
