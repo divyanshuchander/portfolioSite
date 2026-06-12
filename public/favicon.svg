@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect x="5" y="5" width="90" height="90" rx="20" fill="#0f172a" stroke="url(#grad)" stroke-width="5" />
-  <text x="50" y="65" font-family="'Fira Code', monospace" font-size="45" font-weight="bold" fill="url(#grad)" text-anchor="middle">DC</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Rounded square background -->
+  <rect width="32" height="32" rx="8" fill="#1c1b19"/>
+  <!-- Letter D -->
+  <text x="4" y="22" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="16" font-weight="700" fill="#818cf8">D</text>
+  <!-- Letter C -->
+  <text x="16" y="22" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="16" font-weight="300" fill="#e8e6e1">C</text>
 </svg>

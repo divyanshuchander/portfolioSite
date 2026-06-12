@@ -107,3 +107,23 @@ export const resume = {
   // Path relative to /public directory
   pdfPath: "/resume.pdf",
 };
+
+// ─── Blog ─────────────────────────────────────────────────────────────────
+// Add your Medium username (or other RSS feed URL) below.
+// The blog section will auto-fetch and display your latest posts.
+export const blog = {
+  // Your Medium username — change this to your actual Medium handle
+  mediumUsername: "divyanshuchander",
+  // Posts to show on the portfolio
+  maxPosts: 4,
+  // Fallback: if RSS fails or you have no posts yet, show these placeholders
+  // Remove these once you have real Medium posts
+  placeholders: [
+    {
+      title: "Coming soon — blogs on the way",
+      subtitle: "Stay tuned for articles on full-stack dev, cybersecurity, and more.",
+      link: "https://medium.com/@divyanshuchander",
+      date: "",
+    },
+  ],
+};

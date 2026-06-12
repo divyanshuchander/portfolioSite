@@ -21,7 +21,7 @@ const LinkedInIcon = () => (
 );
 
 const ArrowIcon = () => (
-  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
     <path d="M7 17 17 7M7 7h10v10"/>
   </svg>
 );
@@ -45,6 +45,7 @@ function ContactRow({ icon, label, value, href }) {
         fontSize: '13px',
         transition: 'all 220ms cubic-bezier(0.4, 0, 0.2, 1)',
         cursor: 'pointer',
+        minWidth: 0, // allow flex children to shrink
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.color = 'var(--accent)';
@@ -73,11 +74,14 @@ function ContactRow({ icon, label, value, href }) {
       >
         {icon}
       </div>
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontSize: '10px', color: 'var(--text-tertiary)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
           {label}
         </div>
-        <div style={{ fontWeight: '500' }}>{value}</div>
+        {/* overflow:hidden + text-overflow:ellipsis prevents email from breaking layout */}
+        <div style={{ fontWeight: '500', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          {value}
+        </div>
       </div>
       <ArrowIcon />
     </a>
@@ -88,7 +92,7 @@ export default function ContactCard() {
   return (
     <div
       className="bento-card animate-fade-up"
-      style={{ gridColumn: 'span 3', display: 'flex', flexDirection: 'column', gap: '12px' }}
+      style={{ gridColumn: 'span 3', display: 'flex', flexDirection: 'column', gap: '10px' }}
     >
       <div className="section-label">Contact</div>
 
