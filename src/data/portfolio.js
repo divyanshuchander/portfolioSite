@@ -15,7 +15,7 @@ export const personal = {
   title: "Computer Science Student",
   tagline:
     "CS undergrad focused on backend systems, real-time applications, and network-level problem solving.",
-  bio: "Computer Science undergraduate with strong foundations in computer networks, operating systems, and system-level troubleshooting. Experienced in building real-time and backend applications using Python, Node.js, and ReactJS, with a focus on reliable and scalable system design. Skilled in analyzing issues, debugging systems, and working in Linux-based environments. Qualified GATE 2026 (CS & IT).",
+  bio: "Computer Science undergraduate with strong foundations in computer networks, operating systems, and system-level troubleshooting. Experienced in building real-time and backend applications using Python, Node.js, and ReactJS, with a focus on reliable and scalable system design. Skilled in analyzing issues, debugging systems, and working in Linux-based environments.",
   location: "India",
   email: "divyanshuchander23@gmail.com",
   github: "https://github.com/divyanshuchander",
