@@ -1,6 +1,5 @@
 // src/components/layout/BentoGrid.jsx
 import HeroCard from '../cards/HeroCard';
-import AboutCard from '../cards/AboutCard';
 import SkillsCard from '../cards/SkillsCard';
 import { ProjectCard, projects } from '../cards/ProjectsCard';
 import HonorsCard from '../cards/HonorsCard';
@@ -20,9 +19,8 @@ import BlogCard from '../cards/BlogCard';
 export default function BentoGrid() {
   return (
     <main className="bento-grid" role="main">
-      {/* Row 1 — Intro */}
+      {/* Row 1 — Intro (Hero & Education combined) */}
       <HeroCard />
-      <AboutCard />
 
       {/* Row 2 — Quick info */}
       <SkillsCard />
@@ -41,6 +39,9 @@ export default function BentoGrid() {
       </div>
 
       {/* Row 3–4 — Projects (each is its own card) */}
+      <div className="section-label" style={{ gridColumn: 'span 12', marginTop: '16px', marginBottom: '-4px' }}>
+        Selected Projects
+      </div>
       {projects.map((project, i) => (
         <ProjectCard key={project.title} project={project} ordinal={i + 1} />
       ))}

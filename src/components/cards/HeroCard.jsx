@@ -1,5 +1,5 @@
 // src/components/cards/HeroCard.jsx
-import { personal } from '../../data/portfolio';
+import { personal, education } from '../../data/portfolio';
 
 const GitHubIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
@@ -27,73 +27,136 @@ const LocationIcon = () => (
   </svg>
 );
 
+const BookIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+  </svg>
+);
+
 export default function HeroCard() {
   return (
     <div
       className="bento-card hero-card animate-fade-up"
-      style={{ gridColumn: 'span 7', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '20px' }}
+      style={{
+        gridColumn: 'span 12',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: '30px'
+      }}
     >
-      {/* Top row: avatar + name */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <img
-          src={`https://github.com/${personal.githubUsername}.png`}
-          alt={personal.name}
-          className="hero-avatar"
-          onError={(e) => { e.target.src = '/profile.png'; }}
-          width="72"
-          height="72"
-        />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span
-              style={{
-                fontSize: '11px',
-                fontWeight: '600',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'var(--accent)',
-                backgroundColor: 'var(--accent-soft)',
-                padding: '2px 8px',
-                borderRadius: '99px',
-              }}
-            >
-              Open to Work
-            </span>
+      {/* Left side: Profile Info */}
+      <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <img
+            src={`https://github.com/${personal.githubUsername}.png`}
+            alt={personal.name}
+            className="hero-avatar"
+            onError={(e) => { e.target.src = '/profile.png'; }}
+            width="64"
+            height="64"
+            style={{ width: '64px', height: '64px' }}
+          />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span
+                style={{
+                  fontSize: '11px',
+                  fontWeight: '600',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--accent)',
+                  backgroundColor: 'var(--accent-soft)',
+                  padding: '2px 8px',
+                  borderRadius: '99px',
+                }}
+              >
+                Open to Work
+              </span>
+            </div>
+            <h1 className="hero-name" style={{ fontSize: '2rem' }}>{personal.name}</h1>
+            <p className="hero-title">
+              <span style={{ color: 'var(--text-tertiary)', marginRight: '6px' }}>
+                <LocationIcon />
+              </span>
+              {personal.location} · Computer Science '26
+            </p>
           </div>
-          <h1 className="hero-name">{personal.name}</h1>
-          <p className="hero-title">
-            <span style={{ color: 'var(--text-tertiary)', marginRight: '6px' }}>
-              <LocationIcon />
-            </span>
-            {personal.location} · Computer Science '26
-          </p>
+        </div>
+
+        {/* Tagline replaces the long bio */}
+        <p
+          style={{
+            fontSize: '14px',
+            color: 'var(--text-secondary)',
+            lineHeight: '1.6',
+            maxWidth: '500px',
+          }}
+        >
+          {personal.bio}
+        </p>
+
+        {/* Social links */}
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <a href={personal.github} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+            <GitHubIcon /> GitHub
+          </a>
+          <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
+            <LinkedInIcon /> LinkedIn
+          </a>
+          <a href={`mailto:${personal.email}`} className="social-link" aria-label="Email">
+            <MailIcon /> Email
+          </a>
         </div>
       </div>
 
-      {/* Tagline */}
-      <p
-        style={{
-          fontSize: '1rem',
-          color: 'var(--text-secondary)',
-          lineHeight: '1.6',
-          maxWidth: '460px',
-          fontWeight: '400',
-        }}
-      >
-        {personal.tagline}
-      </p>
-
-      {/* Social links */}
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-        <a href={personal.github} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
-          <GitHubIcon /> GitHub
-        </a>
-        <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-          <LinkedInIcon /> LinkedIn
-        </a>
-        <a href={`mailto:${personal.email}`} className="social-link" aria-label="Email">
-          <MailIcon /> Email
-        </a>
+      {/* Right side: Education (Compact) */}
+      <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '300px' }}>
+        <div className="section-label" style={{ marginBottom: '0px' }}>Education</div>
+        {education.map((edu) => (
+          <div
+            key={edu.shortName}
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '12px',
+              padding: '12px',
+              borderRadius: 'var(--radius-sm)',
+              backgroundColor: 'var(--bg-subtle)',
+              border: '1px solid var(--border)',
+            }}
+          >
+            <div
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '8px',
+                backgroundColor: 'var(--bg-card)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--accent)',
+                flexShrink: 0,
+                border: '1px solid var(--border)',
+              }}
+            >
+              <BookIcon />
+            </div>
+            <div>
+              <div style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-primary)' }}>
+                {edu.school}
+              </div>
+              <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+                {edu.degree}
+              </div>
+              <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginTop: '2px' }}>
+                {edu.period}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
