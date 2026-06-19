@@ -22,7 +22,7 @@ export default function HonorsCard() {
   return (
     <div
       className="bento-card animate-fade-up"
-      style={{ gridColumn: 'span 6', display: 'flex', flexDirection: 'column', gap: '14px' }}
+      style={{ gridColumn: 'span 4', display: 'flex', flexDirection: 'column', gap: '14px' }}
     >
       <div className="section-label">Honors & Achievements</div>
 

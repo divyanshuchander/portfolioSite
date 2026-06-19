@@ -92,7 +92,7 @@ export default function ContactCard() {
   return (
     <div
       className="bento-card animate-fade-up"
-      style={{ gridColumn: 'span 3', display: 'flex', flexDirection: 'column', gap: '10px' }}
+      style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}
     >
       <div className="section-label">Contact</div>
 

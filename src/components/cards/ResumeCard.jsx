@@ -24,7 +24,6 @@ export default function ResumeCard() {
     <div
       className="bento-card animate-fade-up"
       style={{
-        gridColumn: 'span 3',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
