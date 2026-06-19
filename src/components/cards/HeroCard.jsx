@@ -154,6 +154,15 @@ export default function HeroCard() {
               <div style={{ fontSize: '11px', color: 'var(--text-tertiary)', marginTop: '2px' }}>
                 {edu.period}
               </div>
+              {edu.highlights && edu.highlights.length > 0 && (
+                <div style={{ marginTop: '4px' }}>
+                  {edu.highlights.map((h) => (
+                    <div key={h} style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>
+                      • {h}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         ))}
