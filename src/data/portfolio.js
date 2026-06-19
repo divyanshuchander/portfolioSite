@@ -18,7 +18,6 @@ export const personal = {
   bio: "Computer Science undergraduate with strong foundations in computer networks, operating systems, and system-level troubleshooting. Experienced in building real-time and backend applications using Python, Node.js, and ReactJS, with a focus on reliable and scalable system design. Skilled in analyzing issues, debugging systems, and working in Linux-based environments. Qualified GATE 2026 (CS & IT).",
   location: "India",
   email: "divyanshuchander23@gmail.com",
-  phone: "+91 7018-612535",
   github: "https://github.com/divyanshuchander",
   linkedin: "https://linkedin.com/in/divyanshuchander",
   portfolio: "https://divyanshuchander.vercel.app",
