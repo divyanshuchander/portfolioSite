@@ -35,8 +35,10 @@ export default function SkillsCard() {
       <div className="section-label">Skills</div>
 
       <SkillGroup label="Languages" items={skills.languages} />
-      <SkillGroup label="Backend & Frameworks" items={skills.backend} />
+      <SkillGroup label="Backend & APIs" items={skills.backend} />
+      <SkillGroup label="Web" items={skills.web} />
       <SkillGroup label="Tools" items={skills.tools} />
+      <SkillGroup label="Platforms" items={skills.platforms} />
       <SkillGroup label="Core CS" items={skills.core} />
     </div>
   );

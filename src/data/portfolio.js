@@ -5,18 +5,23 @@
  * Simply share your updated resume with the AI and ask it to update this file.
  * All sections map 1-to-1 with standard resume sections.
  * No other files need to be changed for content updates.
+ *
+ * LAST UPDATED: June 2026
  */
 
 // ─── Personal Info ────────────────────────────────────────────────────────────
 export const personal = {
   name: "Divyanshu Chander",
   title: "Computer Science Student",
-  tagline: "Building scalable, data-driven applications and real-time systems.",
-  bio: "Computer Science undergraduate at Jaypee University of Information Technology (2022–2026) with strong foundations in data structures, databases, and full-stack development. Experienced in building scalable applications and real-time systems using Python, SQL, and modern web technologies. Skilled in translating problem statements into technical solutions and collaborating in team environments.",
+  tagline:
+    "CS undergrad focused on backend systems, real-time applications, and network-level problem solving.",
+  bio: "Computer Science undergraduate with strong foundations in computer networks, operating systems, and system-level troubleshooting. Experienced in building real-time and backend applications using Python, Node.js, and ReactJS, with a focus on reliable and scalable system design. Skilled in analyzing issues, debugging systems, and working in Linux-based environments. Qualified GATE 2026 (CS & IT).",
   location: "India",
   email: "divyanshuchander23@gmail.com",
+  phone: "+91 7018-612535",
   github: "https://github.com/divyanshuchander",
   linkedin: "https://linkedin.com/in/divyanshuchander",
+  portfolio: "https://divyanshuchander.vercel.app",
   githubUsername: "divyanshuchander",
 };
 
@@ -27,50 +32,82 @@ export const education = [
     shortName: "JUIT",
     degree: "B.Tech, Computer Science & Engineering",
     period: "2022 – 2026",
+    location: "Solan, India",
+    highlights: ["CGPA: 8.41", "Qualified GATE 2026 (CS & IT)"],
+  },
+  {
+    school: "Army Public School",
+    shortName: "APS",
+    degree: "CBSE Class XII — 93.6%",
+    period: "2021",
+    location: "Chandimandir Cantt, India",
+    highlights: [],
   },
 ];
 
 // ─── Skills ───────────────────────────────────────────────────────────────────
 export const skills = {
-  languages: ["C / C++", "Python", "JavaScript", "TypeScript", "Java", "SQL"],
-  backend: ["Node.js", "Express", "Flask", "React", "Socket.IO"],
-  tools: ["Git", "GitHub", "Docker", "Postman", "Burp Suite", "FFmpeg"],
+  languages: [
+    "C",
+    "C++",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "Java",
+    "SQL",
+    "Bash",
+  ],
+  backend: ["Node.js", "Express", "Flask", "REST APIs"],
+  web: ["ReactJS", "HTML", "CSS", "Tailwind CSS"],
+  tools: [
+    "Git",
+    "GitHub",
+    "Docker",
+    "Postman",
+    "Burp Suite",
+    "Wireshark",
+  ],
+  platforms: ["Linux", "macOS", "Windows"],
   core: [
-    "Data Structures",
-    "Algorithms",
+    "Data Structures & Algorithms",
     "Object-Oriented Design",
     "DBMS",
     "Operating Systems",
     "Computer Networks",
+    "Cloud Computing",
   ],
 };
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 export const projects = [
   {
-    title: "CollabCode Studio",
+    title: "Oikode",
+    subtitle: "Real-Time Collaborative Code Editor",
     year: "2025",
     stack: ["React", "TypeScript", "Node.js", "Express", "Socket.IO"],
     description:
-      "Real-time collaborative code editor with multi-user execution, live file/chat synchronization, and sandboxed multi-language execution across 40+ languages.",
+      "Real-time collaborative web application enabling multiple users to write, edit, and execute code simultaneously. Live synchronization of files, cursors, chat, and whiteboard actions via WebSockets. Sandboxed multi-language execution across 40+ languages with real-time I/O.",
     github: "https://github.com/divyanshuchander/CollabCode-MajorProject",
+    live: "https://oikode.vercel.app",
     featured: true,
   },
   {
     title: "AutoNotes",
+    subtitle: "AI Media Summarization Tool",
     year: "2025",
     stack: ["Python", "Flask", "JavaScript", "FFmpeg", "YouTube API"],
     description:
-      "AI media summarization tool that generates concise summaries from YouTube videos and local media using optimized speech-to-text pipelines.",
+      "Full-stack application to generate concise summaries from YouTube videos and local media files. RESTful APIs for media ingestion, transcription, and summarization with optimized speech-to-text pipelines.",
     github: "https://github.com/divyanshuchander/AutoNotes",
     featured: true,
   },
   {
     title: "Student DB System",
+    subtitle: "Database Management Application",
     year: "2024",
     stack: ["Python", "MySQL", "SQL"],
     description:
-      "Student database management system with robust schemas and full CRUD operations for managing academic records.",
+      "Python and MySQL application to manage student records with robust schemas, SQL queries supporting full CRUD operations, and backend validation for data integrity.",
     github:
       "https://github.com/divyanshuchander/Student-Database-Management-Project",
     featured: false,
@@ -87,14 +124,14 @@ export const honors = [
     color: "gold",
   },
   {
-    title: "Qriosity Technical Competition",
+    title: "Qriosity — ACM Technical Competition",
     position: "1st Place (2024) · 2nd Place (2023)",
     level: "University Level — 50+ participants",
     year: "2023–24",
     color: "indigo",
   },
   {
-    title: "Hache 3.0 — Cybersecurity CTF",
+    title: "Hache 3.0 — ACM Cybersecurity CTF",
     position: "3rd Place",
     level: "University Level — 24-hour Capture The Flag",
     year: "2023",
@@ -104,8 +141,8 @@ export const honors = [
 
 // ─── Resume ───────────────────────────────────────────────────────────────────
 export const resume = {
-  // Path relative to /public directory
   pdfPath: "/resume.pdf",
+  lastUpdated: "June 2026",
 };
 
 // ─── Blog ─────────────────────────────────────────────────────────────────
@@ -121,7 +158,8 @@ export const blog = {
   placeholders: [
     {
       title: "Coming soon — blogs on the way",
-      subtitle: "Stay tuned for articles on full-stack dev, cybersecurity, and more.",
+      subtitle:
+        "Stay tuned for articles on full-stack dev, cybersecurity, and more.",
       link: "https://medium.com/@divyanshuchander",
       date: "",
     },

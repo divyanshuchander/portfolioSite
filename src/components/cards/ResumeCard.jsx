@@ -57,6 +57,9 @@ export default function ResumeCard() {
         <div style={{ fontSize: '12px', color: 'var(--text-tertiary)' }}>
           {personal.name} · PDF
         </div>
+        <div style={{ fontSize: '11px', color: 'var(--text-tertiary)' }}>
+          Updated: {resume.lastUpdated}
+        </div>
       </div>
 
       <a

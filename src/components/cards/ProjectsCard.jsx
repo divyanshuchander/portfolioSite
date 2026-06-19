@@ -13,6 +13,14 @@ const GitHubIcon = () => (
   </svg>
 );
 
+const GlobeIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="2" y1="12" x2="22" y2="12"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+  </svg>
+);
+
 function ProjectItem({ project }) {
   return (
     <div
@@ -35,9 +43,16 @@ function ProjectItem({ project }) {
     >
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
-        <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-primary)' }}>
-          {project.title}
-        </h3>
+        <div>
+          <h3 style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-primary)' }}>
+            {project.title}
+          </h3>
+          {project.subtitle && (
+            <div style={{ fontSize: '12px', color: 'var(--text-tertiary)' }}>
+              {project.subtitle}
+            </div>
+          )}
+        </div>
         <span className="project-year">{project.year}</span>
       </div>
 
@@ -55,27 +70,51 @@ function ProjectItem({ project }) {
         ))}
       </div>
 
-      {/* Link */}
-      <a
-        href={project.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '5px',
-          fontSize: '12px',
-          fontWeight: '600',
-          color: 'var(--accent)',
-          textDecoration: 'none',
-          transition: 'gap 150ms',
-        }}
-        aria-label={`View ${project.title} on GitHub`}
-      >
-        <GitHubIcon />
-        View on GitHub
-        <ArrowIcon />
-      </a>
+      {/* Links */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '5px',
+            fontSize: '12px',
+            fontWeight: '600',
+            color: 'var(--accent)',
+            textDecoration: 'none',
+            transition: 'gap 150ms',
+          }}
+          aria-label={`View ${project.title} on GitHub`}
+        >
+          <GitHubIcon />
+          View on GitHub
+          <ArrowIcon />
+        </a>
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '5px',
+              fontSize: '12px',
+              fontWeight: '600',
+              color: 'var(--text-secondary)',
+              textDecoration: 'none',
+              transition: 'gap 150ms',
+            }}
+            aria-label={`Live demo of ${project.title}`}
+          >
+            <GlobeIcon />
+            Live Demo
+            <ArrowIcon />
+          </a>
+        )}
+      </div>
     </div>
   );
 }
