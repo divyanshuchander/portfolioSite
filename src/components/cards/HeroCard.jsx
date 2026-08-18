@@ -51,13 +51,10 @@ export default function HeroCard() {
       <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <img
-            src={`https://github.com/${personal.githubUsername}.png`}
+            src={personal.avatarUrl || `https://github.com/${personal.githubUsername}.png`}
             alt={personal.name}
             className="hero-avatar"
             onError={(e) => { e.target.src = '/profile.png'; }}
-            width="64"
-            height="64"
-            style={{ width: '64px', height: '64px' }}
           />
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

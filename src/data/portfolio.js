@@ -22,6 +22,9 @@ export const personal = {
   linkedin: "https://linkedin.com/in/divyanshuchander",
   portfolio: "https://divyanshuchander.vercel.app",
   githubUsername: "divyanshuchander",
+  // To use a custom high-quality photo instead of the GitHub avatar,
+  // place your image in the 'public' folder and update this URL (e.g., "/my-photo.jpg")
+  avatarUrl: "/my-photo.jpg",
 };
 
 // ─── Education ────────────────────────────────────────────────────────────────
