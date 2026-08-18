@@ -148,8 +148,8 @@ export default function BlogCard() {
 
   return (
     <div
-      className="bento-card animate-fade-up"
-      style={{ gridColumn: 'span 12', display: 'flex', flexDirection: 'column', gap: '14px' }}
+      className="bento-card col-span-12 animate-fade-up"
+      style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

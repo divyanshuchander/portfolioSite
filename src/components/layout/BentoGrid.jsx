@@ -26,9 +26,8 @@ export default function BentoGrid() {
       <SkillsCard />
       <HonorsCard />
       <div
-        className="animate-fade-up"
+        className="col-span-4 animate-fade-up"
         style={{
-          gridColumn: 'span 4',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
@@ -39,7 +38,7 @@ export default function BentoGrid() {
       </div>
 
       {/* Row 3–4 — Projects (each is its own card) */}
-      <div className="section-label" style={{ gridColumn: 'span 12', marginTop: '16px', marginBottom: '-4px' }}>
+      <div className="section-label col-span-12" style={{ marginTop: '16px', marginBottom: '-4px' }}>
         Selected Projects
       </div>
       {projects.map((project, i) => (

@@ -31,9 +31,8 @@ export function ProjectCard({ project, ordinal }) {
 
   return (
     <div
-      className="bento-card animate-fade-up"
+      className={`bento-card ${project.featured ? 'col-span-6' : 'col-span-12'} animate-fade-up`}
       style={{
-        gridColumn: `span ${colSpan}`,
         display: 'flex',
         flexDirection: 'column',
         gap: '16px',

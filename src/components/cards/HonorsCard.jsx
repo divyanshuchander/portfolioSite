@@ -21,8 +21,8 @@ const TrophyIcon = () => (
 export default function HonorsCard() {
   return (
     <div
-      className="bento-card animate-fade-up"
-      style={{ gridColumn: 'span 4', display: 'flex', flexDirection: 'column', gap: '14px' }}
+      className="bento-card col-span-4 animate-fade-up"
+      style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}
     >
       <div className="section-label">Honors & Achievements</div>
 

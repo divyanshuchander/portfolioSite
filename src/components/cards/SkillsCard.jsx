@@ -29,8 +29,8 @@ function SkillGroup({ label, items, accentColor }) {
 export default function SkillsCard() {
   return (
     <div
-      className="bento-card animate-fade-up"
-      style={{ gridColumn: 'span 4', display: 'flex', flexDirection: 'column', gap: '18px' }}
+      className="bento-card col-span-4 animate-fade-up"
+      style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}
     >
       <div className="section-label">Skills</div>
 

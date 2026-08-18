@@ -35,28 +35,20 @@ const BookIcon = () => (
 
 export default function HeroCard() {
   return (
-    <div
-      className="bento-card hero-card animate-fade-up"
-      style={{
-        gridColumn: 'span 12',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: '30px'
-      }}
-    >
+    <div className="bento-card hero-card col-span-12 animate-fade-up">
       {/* Left side: Profile Info */}
-      <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <img
-            src={personal.avatarUrl || `https://github.com/${personal.githubUsername}.png`}
-            alt={personal.name}
-            className="hero-avatar"
-            onError={(e) => { e.target.src = '/profile.png'; }}
-          />
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+      <div className="hero-left">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+          {/* Artistic Avatar */}
+          <div className="hero-avatar-wrap">
+            <img
+              src={personal.avatarUrl || `https://github.com/${personal.githubUsername}.png`}
+              alt={personal.name}
+              className="hero-avatar"
+              onError={(e) => { e.target.src = '/my-photo.jpg'; }}
+            />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span
                 style={{
@@ -73,7 +65,7 @@ export default function HeroCard() {
                 Open to Work
               </span>
             </div>
-            <h1 className="hero-name" style={{ fontSize: '2rem' }}>{personal.name}</h1>
+            <h1 className="hero-name">{personal.name}</h1>
             <p className="hero-title">
               <span style={{ color: 'var(--text-tertiary)', marginRight: '6px' }}>
                 <LocationIcon />
@@ -83,7 +75,7 @@ export default function HeroCard() {
           </div>
         </div>
 
-        {/* Tagline replaces the long bio */}
+        {/* Bio */}
         <p
           style={{
             fontSize: '14px',
@@ -110,7 +102,7 @@ export default function HeroCard() {
       </div>
 
       {/* Right side: Education (Compact) */}
-      <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '300px' }}>
+      <div className="hero-right">
         <div className="section-label" style={{ marginBottom: '0px' }}>Education</div>
         {education.map((edu) => (
           <div
@@ -141,7 +133,7 @@ export default function HeroCard() {
             >
               <BookIcon />
             </div>
-            <div>
+            <div style={{ minWidth: 0, flex: 1 }}>
               <div style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-primary)' }}>
                 {edu.school}
               </div>
