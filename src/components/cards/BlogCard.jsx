@@ -105,16 +105,18 @@ function PostItem({ post }) {
 
 // Parse Medium RSS feed via a public RSS-to-JSON proxy
 async function fetchMediumPosts(username, maxPosts) {
-  const rssUrl = `https://medium.com/feed/@${username}`;
-  const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=${maxPosts}`;
+  // Use a 5-minute cache buster to update posts quicker than the 1-hour proxy cache
+  const cacheBuster = Math.floor(Date.now() / 300000);
+  const rssUrl = `https://medium.com/feed/@${username}?t=${cacheBuster}`;
+  const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
-  const res = await fetch(proxyUrl);
+  const res = await fetch(proxyUrl, { cache: 'no-cache' });
   if (!res.ok) throw new Error('RSS fetch failed');
 
   const data = await res.json();
   if (data.status !== 'ok') throw new Error('RSS parse failed');
 
-  return data.items.map((item) => ({
+  return data.items.slice(0, maxPosts).map((item) => ({
     title: item.title,
     // Strip HTML tags from description to get plain subtitle
     subtitle: item.description
